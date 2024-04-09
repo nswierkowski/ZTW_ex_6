@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="small-container">
     <h2>Autorzy</h2>
-    <authors-table :authorsSource="authors"/>
+    <authors-table :authorsSource="authors" @update-author="updateAuthor" @delete-author="deleteAuthor"/>
     <h2>Dodaj autora</h2>
     <authors-form @add:author="addAuthor"/>
   </div>
@@ -52,6 +52,10 @@ export default {
       } catch (error) {
         console.error(error);
       }
+    },
+    async updateAuthor(authorData) {
+      const { id, firstName, lastName } = authorData;
+      this.$router.push({ name: 'updateAuthor', params: { id, firstName, lastName }});
     },
     async deleteAuthor(authorId) {
       try {

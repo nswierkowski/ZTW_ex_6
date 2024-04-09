@@ -14,10 +14,15 @@
           <td>{{ author.id }}</td>
           <td>{{ author.firstName }}</td>
           <td>{{ author.lastName }}</td>
-          <td>
-            <router-link :to="{ name: 'updateAuthor', params: { id: author.id, firstName: author.firstName, lastName: author.lastName } }">
+          <td class="button-cell">
+            <button
+              class="button-update"
+              @click="
+                updateAuthor(author.id, author.firstName, author.lastName)
+              "
+            >
               Update
-            </router-link>
+            </button>
             <button @click="deleteAuthor(author.id)">Delete</button>
           </td>
         </tr>
@@ -33,9 +38,15 @@ export default {
   },
   methods: {
     deleteAuthor(authorId) {
-      this.$emit('delete-author', authorId);
+      this.$emit("delete-author", authorId);
     },
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+
+.button-cell button {
+  margin-right: 10px;
+}
+
+</style>
