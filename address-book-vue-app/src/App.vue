@@ -1,6 +1,17 @@
 <template>
   <div id="app" class="small-container">
-    <h1>Znajomi</h1>
+      <div id="app">
+      <nav>
+        <ul>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/contact">Contact</router-link></li>
+          <li><router-link to="/authors">Authors</router-link></li>
+        </ul>
+      </nav>
+
+      <router-view/>
+    </div>
     <person-form @add:person="addPerson" />
     <persons-table :personsSource="persons" />
   </div>
@@ -76,5 +87,31 @@ button {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+nav {
+  background: #333;
+  color: white;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
 </style>
