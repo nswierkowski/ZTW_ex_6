@@ -4,8 +4,10 @@
       <component :is="currentLayout">
         <nav>
           <ul>
-            <li><router-link to="/authors">Authors</router-link></li>
-            <li><router-link to="/library">Library</router-link></li>
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/books">Książki</router-link></li>
+            <li><router-link to="/authors">Autorzy</router-link></li>
+            <li><router-link to="/library">Wypożyczalnia</router-link></li>
           </ul>
         </nav>
       </component>
