@@ -1,22 +1,33 @@
 <template>
   <div id="app" class="big-container">
-      <div id="app">
-      <nav>
-        <ul>
-          <li><router-link to="/authors">Authors</router-link></li>
-          <li><router-link to="/library">Library</router-link></li>
-        </ul>
-      </nav>
-      <router-view/>
+    <div id="app">
+      <component :is="currentLayout">
+        <nav>
+          <ul>
+            <li><router-link to="/authors">Authors</router-link></li>
+            <li><router-link to="/library">Library</router-link></li>
+          </ul>
+        </nav>
+      </component>
+      <router-view />
     </div>
   </div>
 </template>
+
 <script>
+import DefaultLayout from './components/layouts/DefaultLayout.vue';
+import LibraryLayout from './components/layouts/LibraryLayout.vue';
 
 export default {
   name: "app",
-  data() {
-    return {};
+  components: {
+    DefaultLayout,
+    LibraryLayout
+  },
+  computed: {
+    currentLayout() {
+      return this.$route.meta.layout === 'LibraryLayout' ? 'LibraryLayout' : 'DefaultLayout' ;
+    }
   },
   methods: {
     addPerson(person) {
@@ -44,9 +55,6 @@ export default {
 button {
   background: #009435;
   border: 1px solid #009435;
-}
-.small-container {
-  max-width: 680px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

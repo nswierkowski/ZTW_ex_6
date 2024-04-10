@@ -6,6 +6,7 @@ import LibraryTable from '../components/library/LibraryTable'
 import LendingRegisterTable from '../components/library/LibraryLendingRegisterTable.vue'
 import HomeView from '../views/HomeView.vue'
 
+
 const routes = [
   {
     path: '/',
@@ -25,17 +26,20 @@ const routes = [
   {
     path: '/library',
     name: 'library',
-    component: LibraryMainView
+    component: LibraryMainView,
+    meta: { layout: 'LibraryLayout' }
   },
   {
     path: '/library/library-table/:readerId',
     name: 'libraryTable',
-    component: LibraryTable
+    component: LibraryTable,
+    meta: { layout: 'LibraryLayout' }
   },
   {
     path: '/library/lending-register-table/',
     name: 'lendingRegisterTable',
-    component: LendingRegisterTable
+    component: LendingRegisterTable,
+    meta: { layout: 'LibraryLayout' }
   }
 ]
 
