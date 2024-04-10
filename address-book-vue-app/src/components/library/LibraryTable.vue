@@ -9,7 +9,7 @@
           <th>Autorzy</th>
           <th>Rok publikacja</th>
           <th>Liczba kopii</th>
-          <th>Dostępna liczba w bibliotece</th>
+          <th>Liczba w bibliotece</th>
           <th>Akcje</th>
         </tr>
       </thead>
@@ -149,12 +149,18 @@ export default {
 };
 </script>
 <style scoped>
+
 .button-cell button {
   margin-right: 10px;
 }
 
 .button-container {
-  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+
+.button-container button {
   margin-top: 10px;
+  margin-right: 10px;
 }
 </style>

@@ -28,15 +28,24 @@
         </tr>
       </tbody>
     </table>
-    <div class="pagination-buttons">
-      <button v-if="currentPage !== 1" @click="goToPreviousPage">Previous Page</button>
-      <button v-if="showLoadMoreButton" @click="loadMoreAuthors">Show More</button>
-    </div>
+    <pagination-buttons
+      v-if="authorsSource.length > pageSize"
+      :sourceLength="authorsSource.length"
+      :current-page="currentPage"
+      :page-size="pageSize"
+      @load-more-authors="loadMoreAuthors"
+      @go-to-previous-page="goToPreviousPage"
+    />
   </div>
 </template>
 <script>
+import PaginationButtons from '../pagination/PaginationButtons.vue';
+
 export default {
   name: "authors-table",
+  components: {
+    PaginationButtons
+  },
   props: {
     authorsSource: Array,
   },
@@ -51,9 +60,6 @@ export default {
       const startIndex = (this.currentPage - 1) * this.pageSize;
       const endIndex = startIndex + this.pageSize;
       return this.authorsSource.slice(startIndex, endIndex);
-    },
-    showLoadMoreButton() {
-      return this.authorsSource.length > this.currentPage * this.pageSize;
     },
   },
   methods: {
@@ -74,10 +80,6 @@ export default {
 </script>
 <style scoped>
 .button-cell button {
-  margin-right: 10px;
-}
-
-.pagination-buttons button {
   margin-right: 10px;
 }
 </style>
