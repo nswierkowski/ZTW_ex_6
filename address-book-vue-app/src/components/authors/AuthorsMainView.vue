@@ -100,29 +100,5 @@ button {
   margin-top: 60px;
 }
 
-nav {
-  background: #333;
-  color: white;
-  padding: 1rem;
-}
 
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 1rem;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
 </style>
