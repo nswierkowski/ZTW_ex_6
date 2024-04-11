@@ -5,6 +5,8 @@ import LibraryMainView from '../components/library/LibraryMainView.vue'
 import LibraryTable from '../components/library/LibraryTable'
 import LendingRegisterTable from '../components/library/LibraryLendingRegisterTable.vue'
 import HomeView from '../views/HomeView.vue'
+import BooksMainView from '../components/books/BooksMainView.vue'
+import BooksUpdate from '../components/books/BooksUpdate.vue'
 
 
 const routes = [
@@ -40,7 +42,17 @@ const routes = [
     name: 'lendingRegisterTable',
     component: LendingRegisterTable,
     meta: { layout: 'LibraryLayout' }
-  }
+  },
+  {
+    path: '/books',
+    name: 'books',
+    component: BooksMainView
+  },
+  {
+    path: '/books/update-book/:id',
+    name: 'updateBook',
+    component: BooksUpdate
+  },
 ]
 
 const router = createRouter({
